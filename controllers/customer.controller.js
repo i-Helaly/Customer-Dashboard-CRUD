@@ -26,9 +26,23 @@ const getSingleCustomer = async(req,res)=>{
 }
 
 
+const viewEditCustomer = async(req,res)=>{
+  const userId = req.params.id;
+  const customers = await Customer.findById(userId)
+  res.render('user/edit' , {customers})
+}
+
+const editCustomer = async(req,res)=>{
+  const userId = req.params.id;
+  const updated = await Customer.findByIdAndUpdate(userId , req.body)
+  res.status(201).json({msg : "updated"})
+}
+
 module.exports ={
     getHome,
     getAddCustomer,
     addCustomer,
-    getSingleCustomer
+    getSingleCustomer,
+    viewEditCustomer,
+    editCustomer
 }

@@ -24,12 +24,12 @@ const bodyValidation = [
   body("country")
     .notEmpty()
     .withMessage("firstname Required")
-    .isin(["egypt", "morocco"])
+    .isIn(["egypt", "morocco"])
     .withMessage("range egypt and morocco"),
   body("gender")
     .notEmpty()
     .withMessage("gender Required")
-    .isin(["male", "female"])
+    .isIn(["male", "female"])
     .withMessage("range male and female"),
 ];
 
